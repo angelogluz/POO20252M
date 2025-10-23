@@ -1,17 +1,36 @@
 export class Cliente {
-    nome: string;
-    telefone: string;
+    private _nome: string;
+    private _telefone: string;
 
-    constructor() {
-        this.nome = "";
-        this.telefone = "";
+    constructor(n: string, t: string) {
+        this._nome = n;
+        this._telefone = t;
+    }
+
+    //  public getNome(){
+    //      return this.nome;
+    //  }
+    public get nome(): string {
+        console.log("O nome foi acessado em ", new Date());
+        return this._nome;
+    }
+    public set nome(nome: string) {
+        if (nome.length < 3 || nome.length > 20) {
+            throw new Error("Nome Inválido");
+
+        }
+        this._nome = nome;
+    }
+    public set telefone(tel: string) {
+        
+        this._telefone = tel;
     }
 
     atualizarTelefone(novoTelefone: string) {
         const ehTelefoneValido = this.validarTelefone(novoTelefone);
         if (ehTelefoneValido) {
             this.telefone = novoTelefone;
-        }else{
+        } else {
             throw new Error("Telefone Inválido")
         }
     }

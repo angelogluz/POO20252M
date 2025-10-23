@@ -29,9 +29,10 @@ item3.preco = 7;
 // console.log(item1.obterPrecoFinal());
 // console.log(item1.emPromocao()? "SIM":"NÃO");
 
-const cliente: Cliente = new Cliente();
-cliente.nome = Util.gerarNome();
-cliente.telefone = "53981560341"
+const cliente: Cliente = new Cliente(Util.gerarNome(),"53981560341");
+
+//const n = cliente.getNome();
+const n = cliente.nome;
 
 item1.aplicarDesconto(20);
 
